@@ -13,8 +13,12 @@ def generate_car_matrix(df)->pd.DataFrame:
                           where 'id_1' and 'id_2' are used as indices and columns respectively.
     """
     # Write your logic here
+    df = pd.read_csv("dataset-1.csv")
+    #setting columns and indices
+    matrix = df.pivot(index='id_1', columns='id_2', values='car)
+    matrix.values[[range(len(matrix))]*2 = 0
 
-    return df
+    return matrix
 
 
 def get_type_count(df)->dict:
@@ -28,6 +32,13 @@ def get_type_count(df)->dict:
         dict: A dictionary with car types as keys and their counts as values.
     """
     # Write your logic here
+    df = pd.read_csv("dataset-1.csv")
+    conditions = [(df['car'] <= 15),
+                  (df['car'] > 15) & (df['car'] <=25),
+                  (df['car'] >25)]
+    choices = ['low', 'medium', 'high']
+    df['car_type'] = pd.series(np.select(conditions, choise, default = np.nan), dtype="category"
+    
 
     return dict()
 
